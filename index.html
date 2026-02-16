@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronoscape Clock Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="app-header reveal" style="--delay: 0.08s;">
+            <div>
+                <p class="eyebrow">Time Utility Dashboard</p>
+                <h1>Chronoscape</h1>
+                <p class="subtitle">A polished clock workspace with timezone awareness, an analog face, and focused timing tools.</p>
+            </div>
+            <div class="header-controls">
+                <label class="control" for="timezone-select">
+                    <span>Timezone</span>
+                    <select id="timezone-select" aria-label="Select timezone">
+                        <option value="local">Local Time</option>
+                        <option value="UTC">UTC</option>
+                        <option value="America/New_York">America/New_York</option>
+                        <option value="Europe/London">Europe/London</option>
+                        <option value="Asia/Kolkata">Asia/Kolkata</option>
+                        <option value="Asia/Tokyo">Asia/Tokyo</option>
+                        <option value="Australia/Sydney">Australia/Sydney</option>
+                    </select>
+                </label>
+                <button id="format-toggle" class="button button-ghost" type="button" aria-pressed="false">
+                    Switch to 12-Hour
+                </button>
+            </div>
+        </header>
+
+        <section class="content-grid">
+            <article class="panel panel-hero reveal" style="--delay: 0.16s;">
+                <div class="panel-title-row">
+                    <p class="panel-title">Live Clock</p>
+                    <p id="active-zone" class="zone-pill">Local Time</p>
+                </div>
+                <p id="digital-time" class="digital-time">00:00:00</p>
+                <p id="full-date" class="full-date">Loading date...</p>
+                <p id="greeting" class="greeting">Good day.</p>
+            </article>
+
+            <article class="panel panel-analog reveal" style="--delay: 0.24s;">
+                <div class="panel-title-row">
+                    <p class="panel-title">Analog Face</p>
+                </div>
+                <div class="analog-clock" aria-label="Analog clock">
+                    <div id="clock-ticks" class="clock-ticks"></div>
+                    <div id="hour-hand" class="hand hand-hour" aria-hidden="true"></div>
+                    <div id="minute-hand" class="hand hand-minute" aria-hidden="true"></div>
+                    <div id="second-hand" class="hand hand-second" aria-hidden="true"></div>
+                    <div class="clock-center" aria-hidden="true"></div>
+                </div>
+            </article>
+
+            <article class="panel reveal" style="--delay: 0.32s;">
+                <div class="panel-title-row">
+                    <p class="panel-title">World Clocks</p>
+                </div>
+                <ul id="world-clock-list" class="world-clock-list"></ul>
+            </article>
+
+            <article class="panel reveal" style="--delay: 0.4s;">
+                <div class="panel-title-row">
+                    <p class="panel-title">Stopwatch</p>
+                </div>
+                <p id="stopwatch-display" class="tool-display">00:00:00.0</p>
+                <div class="button-row">
+                    <button id="stopwatch-start" class="button button-solid" type="button">Start</button>
+                    <button id="stopwatch-stop" class="button button-ghost" type="button">Pause</button>
+                    <button id="stopwatch-reset" class="button button-ghost" type="button">Reset</button>
+                </div>
+            </article>
+
+            <article class="panel reveal" style="--delay: 0.48s;">
+                <div class="panel-title-row">
+                    <p class="panel-title">Countdown Timer</p>
+                </div>
+                <div class="timer-input-row">
+                    <label for="timer-minutes">
+                        <span>Minutes</span>
+                        <input id="timer-minutes" type="number" min="0" max="999" value="5">
+                    </label>
+                    <label for="timer-seconds">
+                        <span>Seconds</span>
+                        <input id="timer-seconds" type="number" min="0" max="59" value="0">
+                    </label>
+                </div>
+                <p id="timer-display" class="tool-display">05:00</p>
+                <p id="timer-status" class="status-text">Ready.</p>
+                <div class="button-row">
+                    <button id="timer-start" class="button button-solid" type="button">Start</button>
+                    <button id="timer-stop" class="button button-ghost" type="button">Pause</button>
+                    <button id="timer-reset" class="button button-ghost" type="button">Reset</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

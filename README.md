@@ -1,40 +1,51 @@
-# Digital Clock with Blur Effect
+# Chronoscape Clock Suite
 
-## Description
-This is a simple digital clock implemented using HTML, CSS, and JavaScript. It displays the current time and updates every second. The background of the clock has a blur effect to enhance readability while maintaining the aesthetics of the background image.
+Chronoscape is a modern, single-page clock dashboard built with vanilla HTML, CSS, and JavaScript. It combines a live digital clock, analog clock, world clocks, stopwatch, and countdown timer in a responsive UI.
 
-## Features
-- Displays the current time in `HH:MM:SS` format.
-- Updates automatically every second.
-- Background image with a full-screen cover effect.
-- Semi-transparent clock with a blur effect.
-- Responsive design to adjust to different screen sizes.
+## Highlights
+- Timezone-aware primary clock (`Local`, `UTC`, and major regions).
+- 12-hour / 24-hour display toggle.
+- Live date and context greeting based on selected timezone.
+- Animated analog clock with generated tick marks.
+- Built-in world clock panel.
+- Stopwatch with start, pause, and reset.
+- Countdown timer with validation and status feedback.
+- Responsive, production-style asset structure.
 
-## Technologies Used
-- **HTML**: Structure of the webpage.
-- **CSS**: Styling, including background image, blur effect, and layout.
-- **JavaScript**: Updates the clock dynamically every second.
+## Tech Stack
+- HTML5
+- CSS3 (custom properties, responsive grid, animation)
+- Vanilla JavaScript (DOM APIs + `Intl.DateTimeFormat`)
 
-## Installation & Usage
-1. Download or clone the repository.
-2. Place a background image named `bg.jpeg` in the same directory as the HTML file.
-3. Open the `index.html` file in any modern web browser.
+## Project Structure
+```text
+Clock-webapp/
+├── index.html
+├── README.md
+└── assets/
+    ├── css/
+    │   └── style.css
+    ├── images/
+    │   └── bg.jpeg
+    └── js/
+        └── app.js
+```
 
-## Code Breakdown
-- **HTML**: Defines the clock container and clock display.
-- **CSS**:
-  - Sets the background image to cover the entire viewport.
-  - Uses `backdrop-filter: blur(25px);` for the blur effect.
-  - Centers the clock on the page.
-- **JavaScript**:
-  - Fetches the current time.
-  - Formats the time to always show two digits.
-  - Updates the clock every second using `setInterval`.
+## Getting Started
+1. Clone or download this repository.
+2. Open `index.html` directly in a modern browser.
 
-## Future Enhancements
-- Add an option to toggle between 12-hour and 24-hour formats.
-- Provide a settings menu for customization (background, font, colors).
-- Include an option to display the date alongside the time.
+No bundler, package manager, or build step is required.
+
+## Customization
+- Update theme variables in `assets/css/style.css` under `:root`.
+- Add/remove timezone options in `index.html` (`#timezone-select`).
+- Change world-clock cities in `assets/js/app.js` (`worldClockZones`).
+
+## Roadmap
+- Persistent preferences via `localStorage`.
+- Alarm support with notification sound.
+- Keyboard shortcuts for timer/stopwatch controls.
 
 ## License
-This project is open-source and free to use under the MIT License.
+No license file is currently included. Add a `LICENSE` file (for example, MIT) if you plan to distribute this publicly.
