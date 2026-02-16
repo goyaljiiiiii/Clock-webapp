@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body data-theme="day">
     <main class="app-shell">
         <header class="app-header reveal" style="--delay: 0.08s;">
             <div>
                 <p class="eyebrow">Time Utility Dashboard</p>
                 <h1>Chronoscape</h1>
-                <p class="subtitle">A polished clock workspace with timezone awareness, an analog face, and focused timing tools.</p>
+                <p class="subtitle">A polished clock workspace with timezone awareness, auto day/night mode, meeting planning, and focused timing tools.</p>
             </div>
             <div class="header-controls">
                 <label class="control" for="timezone-select">
@@ -24,6 +24,7 @@
                         <option value="local">Local Time</option>
                         <option value="UTC">UTC</option>
                         <option value="America/New_York">America/New_York</option>
+                        <option value="America/Los_Angeles">America/Los_Angeles</option>
                         <option value="Europe/London">Europe/London</option>
                         <option value="Asia/Kolkata">Asia/Kolkata</option>
                         <option value="Asia/Tokyo">Asia/Tokyo</option>
@@ -33,6 +34,7 @@
                 <button id="format-toggle" class="button button-ghost" type="button" aria-pressed="false">
                     Switch to 12-Hour
                 </button>
+                <p id="theme-indicator" class="zone-pill theme-pill">Auto Theme: Day</p>
             </div>
         </header>
 
@@ -60,14 +62,14 @@
                 </div>
             </article>
 
-            <article class="panel reveal" style="--delay: 0.32s;">
+            <article class="panel panel-small reveal" style="--delay: 0.32s;">
                 <div class="panel-title-row">
                     <p class="panel-title">World Clocks</p>
                 </div>
                 <ul id="world-clock-list" class="world-clock-list"></ul>
             </article>
 
-            <article class="panel reveal" style="--delay: 0.4s;">
+            <article class="panel panel-small reveal" style="--delay: 0.4s;">
                 <div class="panel-title-row">
                     <p class="panel-title">Stopwatch</p>
                 </div>
@@ -79,7 +81,7 @@
                 </div>
             </article>
 
-            <article class="panel reveal" style="--delay: 0.48s;">
+            <article class="panel panel-small reveal" style="--delay: 0.48s;">
                 <div class="panel-title-row">
                     <p class="panel-title">Countdown Timer</p>
                 </div>
@@ -100,6 +102,64 @@
                     <button id="timer-stop" class="button button-ghost" type="button">Pause</button>
                     <button id="timer-reset" class="button button-ghost" type="button">Reset</button>
                 </div>
+            </article>
+
+            <article class="panel panel-planner reveal" style="--delay: 0.56s;">
+                <div class="panel-title-row">
+                    <p class="panel-title">Meeting Planner</p>
+                    <p id="planner-summary" class="zone-pill">Set schedules</p>
+                </div>
+                <div class="planner-grid">
+                    <label class="control planner-control" for="planner-zone-a">
+                        <span>Participant A Zone</span>
+                        <select id="planner-zone-a">
+                            <option value="local">Local Time</option>
+                            <option value="UTC">UTC</option>
+                            <option value="America/New_York">America/New_York</option>
+                            <option value="America/Los_Angeles">America/Los_Angeles</option>
+                            <option value="Europe/London">Europe/London</option>
+                            <option value="Asia/Kolkata">Asia/Kolkata</option>
+                            <option value="Asia/Tokyo">Asia/Tokyo</option>
+                            <option value="Australia/Sydney">Australia/Sydney</option>
+                        </select>
+                    </label>
+                    <label class="control planner-control" for="planner-start-a">
+                        <span>A Start (0-23)</span>
+                        <input id="planner-start-a" type="number" min="0" max="23" value="9">
+                    </label>
+                    <label class="control planner-control" for="planner-end-a">
+                        <span>A End (1-24)</span>
+                        <input id="planner-end-a" type="number" min="1" max="24" value="17">
+                    </label>
+
+                    <label class="control planner-control" for="planner-zone-b">
+                        <span>Participant B Zone</span>
+                        <select id="planner-zone-b">
+                            <option value="UTC">UTC</option>
+                            <option value="local">Local Time</option>
+                            <option value="America/New_York">America/New_York</option>
+                            <option value="America/Los_Angeles">America/Los_Angeles</option>
+                            <option value="Europe/London">Europe/London</option>
+                            <option value="Asia/Kolkata" selected>Asia/Kolkata</option>
+                            <option value="Asia/Tokyo">Asia/Tokyo</option>
+                            <option value="Australia/Sydney">Australia/Sydney</option>
+                        </select>
+                    </label>
+                    <label class="control planner-control" for="planner-start-b">
+                        <span>B Start (0-23)</span>
+                        <input id="planner-start-b" type="number" min="0" max="23" value="9">
+                    </label>
+                    <label class="control planner-control" for="planner-end-b">
+                        <span>B End (1-24)</span>
+                        <input id="planner-end-b" type="number" min="1" max="24" value="17">
+                    </label>
+
+                    <label class="control planner-control" for="planner-date">
+                        <span>Date</span>
+                        <input id="planner-date" type="date">
+                    </label>
+                </div>
+                <ul id="planner-slots" class="planner-slots"></ul>
             </article>
         </section>
     </main>
